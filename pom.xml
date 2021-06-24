@@ -4,7 +4,7 @@
   <groupId>test.devops</groupId>
   <artifactId>batch</artifactId>
   <packaging>jar</packaging>
-  <version>60.0</version>
+  <version>70.0</version>
   <name>batch</name>
   <url>http://maven.apache.org</url>
 
