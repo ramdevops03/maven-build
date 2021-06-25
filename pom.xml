@@ -4,7 +4,7 @@
   <groupId>test</groupId>
   <artifactId>batch</artifactId>
   <packaging>jar</packaging>
-  <version>70.0</version>
+  <version>80.0</version>
   <name>batch</name>
   <url>http://maven.apache.org</url>
 
