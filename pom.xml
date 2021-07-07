@@ -4,18 +4,18 @@
   <groupId>test.devops</groupId>
   <artifactId>batch</artifactId>
   <packaging>jar</packaging>
-  <version>81.0</version>
+  <version>70.0</version>
   <name>batch</name>
   <url>http://maven.apache.org</url>
 
 <distributionManagement>
    <repository>
    <id>release</id>
-      <url>http://18.118.93.19:8082/nexus/content/repositories/releases/</url>
+      <url>http://18.117.103.178:8082/nexus/content/repositories/releases/</url>
    </repository>
    <snapshotRepository>
    <id>snapshots</id>
-   <url>http://18.118.93.19:8082/nexus/content/repositories/snapshots/</url>
+   <url>http://18.117.103.178:8082/nexus/content/repositories/snapshots/</url>
    </snapshotRepository>
 </distributionManagement>
 
