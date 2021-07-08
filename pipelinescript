@@ -1,0 +1,22 @@
+node {
+    stage('git')
+    {
+       git 'https://github.com/ramdevops03/maven-build.git'
+    }
+    stage('build')
+    {
+        sh 'mvn package -f pom.xml'
+    }
+    stage('deploy')
+    {
+        nexusArtifactUploader artifacts: [[artifactId: 'batch', classifier: '', file: 'target/batch-91.0.jar', type: '.jar']], credentialsId: 'nexus user', groupId: 'test.devops', nexusUrl: '18.117.103.178:8082/nexus/content/repositories/releases/', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases', version: '91.0'
+    }
+    stage('sucess')
+    {
+        echo "all success"
+    }
+     stage('Deployment')
+    {
+        echo "all success"
+    }
+}
