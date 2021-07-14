@@ -9,7 +9,7 @@ node {
     }
     stage('deploy')
     {
-        nexusArtifactUploader artifacts: [[artifactId: 'batch', classifier: '', file: 'target/batch-91.0.jar', type: '.jar']], credentialsId: 'nexus user', groupId: 'test.devops', nexusUrl: '3.142.136.41:8081/nexus/content/repositories/releases/', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases', version: '91.0'
+        nexusArtifactUploader artifacts: [[artifactId: 'batch', classifier: '', file: 'target/batch-91.0.jar', type: '.jar']], credentialsId: 'nexus user', groupId: 'test.devops', nexusUrl: '3.142.136.41:8081/nexus/content/repositories/releases', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases', version: '91.0'
     }
     stage('sucess')
     {
