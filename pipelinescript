@@ -15,7 +15,7 @@ node {
     {
         echo "all success"
         sh 'cd /tmp/prod; wget http://3.142.136.41:8081/nexus/content/repositories/releases/content/repositories/releases/project/web/2.0/web-2.0.war'
-        sh 'cp /tmp/prod/web* /root/apache-tomcat-8.5.66/webapps'
+        sh 'cp /tmp/prod/web* /apache-tomcat-8.5.66/webapps'
     }
      stage('Deployment')
     {
