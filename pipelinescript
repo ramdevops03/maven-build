@@ -14,7 +14,7 @@ node {
     stage('sucess')
     {
         echo "all success"
-        sh 'cd /root/apache-tomcat-8.5.66/webapps; wget http://13.59.35.210:8082/nexus/content/repositories/releases/content/repositories/releases/project/web/4.0/web-4.0.war'
+        sh 'cd apache-tomcat-8.5.66/webapps; wget http://13.59.35.210:8082/nexus/content/repositories/releases/content/repositories/releases/project/web/4.0/web-4.0.war'
       
     }
      stage('Deployment')
