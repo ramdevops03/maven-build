@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                echo 'Clone code in to server'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Test code before build'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Using Maven Tool build our code'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy our code in Dev or Prod'
+            }
+        }
+    }
+}
