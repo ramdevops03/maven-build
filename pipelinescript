@@ -1,7 +1,7 @@
 node {
     stage('git')
     {
-       git 'https://github.com/ramdevops03/Project_Wardeployment.git'
+       git 'https://github.com/ramdevops03/maven-build.git'
     }
     stage('build')
     {
