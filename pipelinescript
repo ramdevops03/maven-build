@@ -9,16 +9,6 @@ node {
     }
     stage('deploy')
     {
-        nexusArtifactUploader artifacts: [[artifactId: 'web', classifier: '', file: 'target/web.war', type: 'war']], credentialsId: 'nexus user', groupId: 'project', nexusUrl: '13.59.35.210:8082/nexus/content/repositories/releases', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases', version: '4.0'
-    }
-    stage('sucess')
-    {
-        echo "all success"
-        sh 'cd apache-tomcat-8.5.66/webapps; wget http://13.59.35.210:8082/nexus/content/repositories/releases/content/repositories/releases/project/web/4.0/web-4.0.war'
-      
-    }
-     stage('Deployment')
-    {
-        echo "all success"
+        nexusArtifactUploader artifacts: [[artifactId: 'batch', classifier: '', file: 'target/batch-13.0.jar', type: 'jar']], credentialsId: '56926e4a-9bfe-4fea-b628-91d3ea6cdf2a', groupId: 'test.devops', nexusUrl: '54.160.184.102:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases', version: '13.0'
     }
 }
