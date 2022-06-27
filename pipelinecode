@@ -1,0 +1,21 @@
+node{
+    stage('Git')
+    {
+    git 'https://github.com/ramdevops03/maven.git'
+    }
+    stage('Validate MVN')
+    {
+    sh 'mvn -version'
+    }
+    stage('Build')
+    {
+    sh 'mvn package -f web/pom.xml'
+    }
+    stage('Deploy Code')
+    {
+    sshagent(['tomcat_user_ec2']) {
+    sh "scp -o StrictHostKeyChecking=no web/target/web.war ec2-user@3.91.200.230:/home/ec2-user/apache-tomcat-8.5.81/webapps"
+    }
+    }
+    
+}
