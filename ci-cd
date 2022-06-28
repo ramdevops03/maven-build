@@ -1,0 +1,30 @@
+node{
+    stage('Git')
+    {
+    git 'https://github.com/ramdevops03/maven.git'
+    }
+    stage('Validate MVN')
+    {
+    sh 'mvn -version'
+    }
+    stage('Build')
+    {
+    sh 'mvn package -f web/pom.xml'
+    }
+    stage('Push code to Nexus')
+    {
+    nexusArtifactUploader artifacts: 
+    [[artifactId: 'releases',
+    classifier: '',
+    file: 'web/target/web.war-1.0',
+    type: 'war']],
+    credentialsId: 'usr-nexus',
+    groupId: 'project',
+    nexusUrl: '3.91.200.230:8082/nexus',
+    nexusVersion: 'nexus2',
+    protocol: 'http',
+    repository: 'releases',
+    version: '1.0'
+    }
+    
+}
