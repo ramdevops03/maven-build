@@ -1,17 +1,15 @@
 node{
-    stage('Git')
+    stage('Clone Github Repo')
     {
     git 'https://github.com/ramdevops03/maven.git'
     }
-    stage('Validate MVN')
-    {
-    sh 'mvn -version'
-    }
-    stage('Build')
+    
+    stage('Build code with Maven')
     {
     sh 'mvn package -f web/pom.xml'
     }
-    stage('Push code to Nexus')
+    
+    stage('Push Artifact to Nexus Repo')
     {
     nexusArtifactUploader artifacts: 
     [[artifactId: 'releases',
@@ -27,4 +25,15 @@ node{
     version: '1.0'
     }
     
+    stage('Download Code artifact to runtime')
+    {
+    sh "wget http://3.91.200.230:8082/nexus/content/repositories/releases/project/releases/1.0/releases-1.0.war"
+    }
+    
+    stage('Deploy Code in to Prod Server')
+    {
+    sshagent(['tomcat_user_ec2']) {
+    sh "scp -o StrictHostKeyChecking=no releases-* ec2-user@3.91.200.230:/home/ec2-user/apache-tomcat-8.5.81/webapps"
+    }
+    }
 }
