@@ -16,7 +16,7 @@ node{
     nexusArtifactUploader artifacts: 
     [[artifactId: 'releases',
     classifier: '',
-    file: 'web/target/web.war-1.0',
+    file: 'web/target/web.war',
     type: 'war']],
     credentialsId: 'usr-nexus',
     groupId: 'project',
