@@ -22,18 +22,18 @@ node{
     nexusVersion: 'nexus2',
     protocol: 'http',
     repository: 'releases',
-    version: '1.1'
+    version: '1.2'
     }
     
     stage('Download Code artifact to runtime')
     {
-    sh "wget http://3.91.200.230:8082/nexus/content/repositories/releases/project/releases/1.1/releases-1.1.war"
+    sh "wget http://3.91.200.230:8082/nexus/content/repositories/releases/project/releases/1.2/releases-1.2.war"
     }
     
     stage('Deploy Code in to Prod Server')
     {
     sshagent(['tomcat_user_ec2']) {
-    sh "scp -o StrictHostKeyChecking=no releases-* ec2-user@3.91.200.230:/home/ec2-user/apache-tomcat-8.5.81/webapps"
+    sh "scp -o StrictHostKeyChecking=no releases-1.2.* ec2-user@3.91.200.230:/home/ec2-user/apache-tomcat-8.5.81/webapps"
     }
     }
 }
