@@ -22,12 +22,12 @@ node{
     nexusVersion: 'nexus2',
     protocol: 'http',
     repository: 'releases',
-    version: '1.0'
+    version: '1.1'
     }
     
     stage('Download Code artifact to runtime')
     {
-    sh "wget http://3.91.200.230:8082/nexus/content/repositories/releases/project/releases/1.0/releases-1.0.war"
+    sh "wget http://3.91.200.230:8082/nexus/content/repositories/releases/project/releases/1.1/releases-1.1.war"
     }
     
     stage('Deploy Code in to Prod Server')
