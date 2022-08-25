@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/ramdevops03/maven-build.git'
+                git 'https://github.com/ramdevops03/maven.git'
             }
         }
         stage('Build') {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploy our code in Dev or Prod'
+                echo 'Deploy our code in Dev'
             }
         }
     }
